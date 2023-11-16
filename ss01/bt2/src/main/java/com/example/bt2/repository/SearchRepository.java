@@ -1,8 +1,7 @@
-package com.example.bt2.Repository;
+package com.example.bt2.repository;
 
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -21,12 +20,12 @@ public class SearchRepository implements ISearchRepository {
 
     @Override
     public String result(String keyWord) {
-        Set<String> string = dictionary.keySet();
-        for (String s : string) {
-            if (s.equals(keyWord)){
-                return dictionary.get(s);
-            }
+        String result;
+        result = dictionary.get(keyWord);
+        if (result != null) {
+            return result;
+        } else {
+            return "Từ này không có trong hệ thống";
         }
-        return null;
     }
 }

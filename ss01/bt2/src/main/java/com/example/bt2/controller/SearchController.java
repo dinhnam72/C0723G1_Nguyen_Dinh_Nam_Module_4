@@ -1,6 +1,6 @@
-package com.example.bt2.Controller;
+package com.example.bt2.controller;
 
-import com.example.bt2.Serivce.ISearchService;
+import com.example.bt2.serivce.ISearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +19,8 @@ public class SearchController {
     @PostMapping(value = "search")
     public String result(@RequestParam String keyWord, Model model){
         String result = searchService.result(keyWord);
-        String error ="Từ này không có trong hệ thống";
         model.addAttribute("keyWord",keyWord);
         model.addAttribute("result",result);
-        model.addAttribute("error",error);
         return "dictionary";
     }
 }

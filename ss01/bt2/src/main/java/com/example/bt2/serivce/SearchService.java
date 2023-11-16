@@ -1,6 +1,6 @@
-package com.example.bt2.Serivce;
+package com.example.bt2.serivce;
 
-import com.example.bt2.Repository.ISearchRepository;
+import com.example.bt2.repository.ISearchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

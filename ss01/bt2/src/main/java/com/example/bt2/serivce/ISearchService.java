@@ -1,4 +1,4 @@
-package com.example.bt2.Serivce;
+package com.example.bt2.serivce;
 
 public interface ISearchService {
     String result(String keyWord);

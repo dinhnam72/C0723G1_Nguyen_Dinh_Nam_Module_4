@@ -18,12 +18,6 @@
     <input id="keyWord" name="keyWord" value="${keyWord}">
     <button>Tìm kiếm</button>
 </form>
-<c:if test="${result==null}">
-    <p>Kết quả: ${error}</p>
-</c:if>
-<c:if test="${result!=null}">
-    <p>Kết quả: ${result}</p>
-</c:if>
-
+<p>Kết quả: ${result}</p>
 </body>
 </html>
