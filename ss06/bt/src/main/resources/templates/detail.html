@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Chi tiết sản phẩm</h1>
+<div class="col-3" >
+    <div class="card" style="width: 100%;">
+        <img th:src="${blog.pathImg}" class="card-img-top radio:16-9" alt="Not Found!" style="height: 225px">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${blog.title}"></h5>
+            <p class="card-text" th:text="${blog.content}"></p>
+            <p class="card-text" th:text="${blog.dateOfWriting}"></p>
+        </div>
+    </div>
+<a th:href="@{/blog}">Trờ về </a>
+</body>
+</html>

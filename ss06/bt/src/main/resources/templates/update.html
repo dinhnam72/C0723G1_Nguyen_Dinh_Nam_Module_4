@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${blog}" action="/blog/update" method="post">
+    <table>
+        <input th:field="*{id}" hidden="hidden">
+
+        <tr>
+            <td>Tên</td>
+            <td><input th:field="*{title}" required></td>
+        </tr>
+        <tr>
+            <td>Nội dung</td>
+            <td><input th:field="*{content}" required ></td>
+        </tr>
+        <tr>
+            <td>Ngày viết</td>
+            <td><input th:field="*{dateOfWriting}" required type="date"></td>
+        </tr>
+        <tr>
+            <td>Hình ảnh</td>
+            <td><input th:field="*{pathImg}" required></td></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button >Lưu</button></td>
+        </tr>
+
+    </table>
+
+</form>
+</body>
+</html>
