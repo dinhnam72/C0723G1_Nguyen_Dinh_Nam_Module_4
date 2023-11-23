@@ -5,31 +5,27 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Thêm mới sản phẩm</h1>
+<h1>Thêm mới blog</h1>
 <form th:object="${blog}" action="/blog/create" method="post">
-  <table>
-    <tr>
-      <td>Tên</td>
-      <td><input th:field="*{title}" required></td>
-    </tr>
-    <tr>
-      <td>Nội dung</td>
-      <td><input th:field="*{content}" required></td>
-    </tr>
-    <tr>
-      <td>Ngày viết</td>
-      <td><input th:field="*{dateOfWriting}" type="date" required></td>
-    </tr>
-    <tr>
-      <td>Hình ảnh</td>
-      <td><input th:field="*{pathImg}" required></td>
-    </tr>
-    <tr>
-      <td colspan="2"><button >Lưu</button></td>
-    </tr>
 
-  </table>
+    <label for="title">Tên</label><br>
+    <input th:field="*{title}" required id="title"><br>
 
+    <label for="content">Nội dung</label><br>
+    <input th:field="*{content}" required id="content"><br>
+
+    <label for="dateOfWriting">Ngày viết</label><br>
+    <input th:field="*{dateOfWriting}" type="date" required id="dateOfWriting"><br>
+
+    <label for="pathImg">Hình ảnh</label><br>
+    <input th:field="*{pathImg}" required id="pathImg"><br>
+
+    <label for="category">Thể loại</label>
+    <select th:field="*{category}" id="category">
+        <option  th:each="category,status:${categoryList}"
+                th:text="${category.categoryName}" th:value="${category.categoryId}"></option>
+    </select><br>
+    <button>Lưu</button>
 </form>
 </body>
 </html>

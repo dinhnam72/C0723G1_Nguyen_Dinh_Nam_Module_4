@@ -6,21 +6,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Blog {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String title;
-    private String content;
-    private Date dateOfWriting;
-    private String pathImg;
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @Column(name = "category_id")
+    private int categoryId;
+
+    @Column(name = "category_name", columnDefinition = "VARCHAR(50)")
+    private String categoryName;
+    @OneToMany(mappedBy = "category")
+    private Set<Blog> blogSet;
+
+
 }
