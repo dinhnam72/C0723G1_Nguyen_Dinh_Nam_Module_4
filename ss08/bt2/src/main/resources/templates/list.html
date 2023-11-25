@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+<h1>Danh sách bài hát</h1>
+<span style="color: green" th:text="${mess}"></span><br>
+<a href="/song/create">Thêm mới bài hát</a>
+<table class="table table-hover">
+    <thead class="table-primary">
+    <tr>
+        <th>Stt</th>
+        <th>Tên bài hát</th>
+        <th>Ca sĩ</th>
+        <th>Thể loại</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody class="table-secondary">
+    <tr th:each="song,status:${songList}">
+        <td th:text="${status.count}"></td>
+        <td th:text="${song.nameSong}"></td>
+        <td th:text="${song.singer}"></td>
+        <td th:text="${song.type}"></td>
+        <td> <a th:href="@{song/update/__${song.id}__}" class="btn btn-sm btn-outline-warning">Sửa</a></td>
+
+    </tr>
+    <tr>
+        <td colspan="4" th:if="${songList.isEmpty()}" class="text-danger">Không có bài hát nào</td>
+    </tr>
+    </tbody>
+</table>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+</script>
+
+</body>
+</html>
