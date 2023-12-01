@@ -45,5 +45,20 @@ public class ProductController {
         cart.addProduct(product);
         return "redirect:/shop";
     }
+    @GetMapping("/remove/{id}")
+    public String removeToCart(@PathVariable Long id,
+                            @ModelAttribute Cart cart,
+                            @RequestParam("action") String action) {
+        Product product = productService.findById(id);
+        if (product==null) {
+            return "/error";
+        }
+        if (action.equals("remove")){
+            cart.removeProduct(product);
+            return "redirect:/shopping-cart";
+        }
+        cart.addProduct(product);
+        return "redirect:/shop";
+    }
 
 }

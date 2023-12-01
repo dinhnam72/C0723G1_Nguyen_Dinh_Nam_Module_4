@@ -41,7 +41,7 @@
             <td>
                 <a th:if="${product.getValue()==0}">
                 </a>
-                <a th:if="${product.getValue()!=0}" th:href="@{/add/__${product.getKey().id}__(action='remove')}"
+                <a th:if="${product.getValue()!=0}" th:href="@{/remove/__${product.getKey().id}__(action='remove')}"
                    style="text-decoration: none">
                     <i class="fas fa-minus"></i>
                 </a>
