@@ -15,6 +15,11 @@ public class BlogService implements IBlogService {
     private IBlogRepository blogRepository;
 
     @Override
+    public Page<Blog> search(Pageable pageable, String searchName) {
+        return blogRepository.searchPage(pageable,"%"+searchName+"%");
+    }
+
+    @Override
     public List<Blog> findAll(int categoryId) {
         return blogRepository.search(categoryId);
     }
