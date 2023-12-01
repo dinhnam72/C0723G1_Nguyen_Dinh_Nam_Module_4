@@ -26,18 +26,18 @@ public class RestBlogController {
     public ResponseEntity<List<Blog>> getList() {
         List<Blog> blogList = blogService.findAll();
         if (blogList.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
-        return new ResponseEntity<>(blogList, HttpStatus.OK);
+        return new ResponseEntity<>(blogList, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getListByCategory(@PathVariable int id) {
         List<Blog> blogList = blogService.findAll(id);
         if (blogList.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
-        return new ResponseEntity<>(blogList, HttpStatus.OK);
+        return new ResponseEntity<>(blogList, HttpStatus.CREATED);
     }
 
     @GetMapping("detail/{id}")
